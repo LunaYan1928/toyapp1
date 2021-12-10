@@ -48,3 +48,23 @@ with col1:
 	sns.boxplot(data=df2)
 	st.pyplot(fig)
 
+st.subheader('**2. Diabetes Data**')
+boston = datasets.load_boston()
+db = datasets.load_diabetes()
+
+df3 = pd.DataFrame(db.data, columns=db.feature_names)
+# st.dataframe(df2)
+
+# let us try some plotting
+fig, ax = plt.subplots(figsize=(6, 3))
+# sns.boxplot(data=df2)
+# st.pyplot(fig)
+
+col1, col2 = st.columns((1,1))
+with col2:
+	st.dataframe(df3)
+with col1:
+	df3['age'].hist(bins = 10)
+	st.pyplot(fig)
+
+
